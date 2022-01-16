@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+        crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="./access/themify-icons/themify-icons.css">
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="./access/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&family=PT+Sans&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="player">
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <div class="menu_modal">
+                <i class="ti-menu x"></i>
+            </div>
+            <input type="checkbox" name="" class="switch-toggle" id="theme">
+            <!-- Header -->
+            <div class="header">
+                <header>
+                    <h4>Now playing:</h4>
+                    <h2 class="name_song">String 57th & 9th</h2>
+                </header>
+
+                <!-- CD -->
+                <div class="cd">
+                    <div class="cd-thumb"
+                        style="background-image: url('https://avatar-ex-swe.nixcdn.com/playlist/2021/05/26/b/e/2/9/1622014521880_500.jpg')">
+                    </div>
+                </div>
+            </div>
+            <!-- Control -->
+            <div class="control">
+                <div class="btn btn-repeat">
+                    <i class="fas fa-redo"></i>
+                </div>
+                <div class="btn btn-prev">
+                    <i class="fas fa-step-backward"></i>
+                </div>
+                <div class="btn btn-toggle-play">
+                    <i class="fas fa-pause icon-pause"></i>
+                    <i class="fas fa-play icon-play"></i>
+                </div>
+                <div class="btn btn-next">
+                    <i class="fas fa-step-forward"></i>
+                </div>
+                <div class="btn btn-random">
+                    <i class="fas fa-random"></i>
+                </div>
+            </div>
+
+
+
+            <audio id="audio" src=""></audio>
+            
+            
+            <div class="timePlay">
+                <div class="time_current">01:12</div>
+                <input id="progress" class="progress" type="range" value="0" step="0.01" min="0" max="100">
+                <div class="time_end"></div>
+            </div>
+        </div>
+        <!-- Playlist -->
+        <div class="playlist_wrap">
+            <div class="playlist">
+
+            </div>
+        </div>
+
+        <div class="modal_list-song">
+            <div class="modal_overlay"></div>
+            <div class="modal_content">
+                <div class="modal_wrap">
+                    <div class="modal_close">
+                        <i class="ti-close"></i>
+                    </div>
+                    <div class="logo">
+                        <i class="navbar__logo fab fa-forumbee"></i>
+                        <span class="navbar__primary-text">Bee</span><span>music</span>
+                    </div>
+                    <div class="modal-item">
+                        <ul class="modal_list">
+                            <li class="modal_list-item">
+                                <i class="ti-home"></i>
+                                <p>Home</p>
+                            </li>
+                            <li class="modal_list-item btn_us active">
+                                <img src="https://static.thenounproject.com/png/57243-200.png" alt="">
+                                <p>US UK</p> <i class="ti-angle-right "></i>
+                            </li>
+                            <li class="modal_list-item btn_vn"><img class="v"
+                                    src="data:image/png;base64,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"
+                                    alt="">
+                                <p>Vpop</p> <i class="ti-angle-right"></i>
+                            </li>
+                            <li class="modal_list-item btn_favorite"><i class="fas fa-heart"></i>
+                                <p>Favorite Song</p> <i class="ti-angle-right"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal_info">
+                    <img src="https://scontent.fdad2-1.fna.fbcdn.net/v/t39.30808-1/p720x720/220192856_1210111832795734_5060198572064524444_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=7206a8&_nc_ohc=OfQz_-1BidQAX-ezcc9&_nc_ht=scontent.fdad2-1.fna&oh=00_AT8FKapFNwJ1KMvErevv3aaGwVS_KlV03xc2ID0BKtk49A&oe=61E7FD13"
+                        alt="">Lương Công Chương
+                </div>
+            </div>
+        </div>
+        <!-- <div class="notify">
+            <div class="notify_wrap">
+                <div class="notify_contain">
+                    <img src="http://trongrang.com.vn/wp-content/uploads/2017/01/hoi.mau_.xanh_.png" alt="">
+                    <div class="notify_content">
+                        Bạn có muốn thêm bài hát này vào danh sách yêu thích?         
+                    </div>
+                </div>
+                    <div class="button_agree">
+                        <button class="yes" >Yes</button>
+                        <button class="no" >No</button>
+                    </div>
+            </div>
+        </div> -->
+
+    </div>
+    <script src="./app.js"></script>
+</body>
+
+</html>
